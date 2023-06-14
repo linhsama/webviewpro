@@ -68,7 +68,7 @@ class _WebViewExampleState extends State<WebViewExample> {
         onWillPop: _onPop,
 
         child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(config.app_name),
           // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
