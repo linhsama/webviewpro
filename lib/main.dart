@@ -7,10 +7,13 @@ import 'package:flutter_webview_pro/webview_flutter.dart';
 import 'package:webviewpro/src/menu.dart';
 import 'package:webviewpro/src/navigation_controls.dart';
 
+import 'config.dart';
+
 
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       home: WebViewExample(),
     ),
@@ -26,6 +29,7 @@ class _WebViewExampleState extends State<WebViewExample> {
   final Completer<WebViewController> _controller =
   Completer<WebViewController>();
   var loadingPercentage = 0;
+  Config config = Config();
 
   Future<bool> _onPop() async {
     return (await showDialog(
@@ -66,7 +70,7 @@ class _WebViewExampleState extends State<WebViewExample> {
         child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: const Text('Flutter WebView'),
+          title: Text(config.app_name),
           // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
           actions: <Widget>[
             NavigationControls(_controller.future),
@@ -79,10 +83,8 @@ class _WebViewExampleState extends State<WebViewExample> {
           return Stack(
             children:[
 
-
-
             WebView(
-              initialUrl: 'http://mnkimdong.ddns.net/webview',
+              initialUrl: config.url,
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (WebViewController webViewController) {
                 _controller.complete(webViewController);
