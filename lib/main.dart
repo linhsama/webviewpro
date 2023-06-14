@@ -40,12 +40,10 @@ class _WebViewExampleState extends State<WebViewExample> {
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            //<-- SEE HERE
             child: new Text('Không'),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            // <-- SEE HERE
             child: new Text('Đóng'),
           ),
         ],
